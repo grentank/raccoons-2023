@@ -2,18 +2,25 @@ import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-function MainPage({ inDocker }) {
+function MainPage({ user }) {
   return (
     <Row>
       <Col className="text-center mt-4" xs={12}>
-        {JSON.parse(inDocker)
+        {user
           ? (
             <>
-              <h3>Run in docker</h3>
-              <img src="/img/docker-logo.png" alt="logo" height={100} />
+              <h3>Вы авторизованы</h3>
+              <a href="/api/logout">Выйти</a>
             </>
           )
-          : <h3>Run without docker</h3>}
+          : (
+            <>
+              <h3>Вы не авторизованы</h3>
+              <a href="/auth/signin">Войти</a>
+              <br />
+              <a href="/auth/signup">Зарегестрироваться</a>
+            </>
+          )}
       </Col>
     </Row>
   );

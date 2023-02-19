@@ -1,0 +1,9 @@
+DB_NAME=dockerday
+DB_PASS=dockerday
+REDIS=redis://redis:6379
+PGPASS=dockerday
+DBNAME=dockerday
+PGPATH=/home/msi/dock
+DBUSER=admin
+PGDATA=/home/msi/dock
+NGPORT=81

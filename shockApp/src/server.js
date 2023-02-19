@@ -1,8 +1,6 @@
 import express from 'express';
 import path from 'path';
-import isAuth from './middlewares';
 import apiRouter from './routes/apiRouter';
-import authRouter from './routes/authRouter';
 import indexRouter from './routes/indexRouter';
 import customRender from './utils/customRender';
 
@@ -16,10 +14,9 @@ const redisClient = createClient({
 });
 redisClient.connect().catch(console.error);
 
-
 require('dotenv').config();
 
-const PORT = process.env.PORT ?? 3005;
+const PORT = process.env.PORT ?? 3002;
 
 const app = express();
 
@@ -45,7 +42,6 @@ app.use((req, res, next) => {
 });
 
 app.use('/', indexRouter);
-app.use('/auth',isAuth, authRouter);
 app.use('/api', apiRouter);
 
 app.listen(PORT, () => {
