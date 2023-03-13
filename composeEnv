@@ -6,4 +6,4 @@ DBNAME=dockerday
 PGPATH=/home/msi/dock
 DBUSER=admin
 PGDATA=/home/msi/dock
-NGPORT=81
+NGPORT=80
