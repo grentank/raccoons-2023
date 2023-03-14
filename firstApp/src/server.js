@@ -19,7 +19,7 @@ redisClient.connect().catch(console.error);
 
 require('dotenv').config();
 
-const PORT = process.env.PORT ?? 3005;
+const PORT = process.env.PORT ?? 3000;
 
 const app = express();
 

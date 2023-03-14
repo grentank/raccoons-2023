@@ -3,16 +3,15 @@ services:
 
   auth:
     container_name: auth
-    image: auth:01
+    image: auth:1.0
     restart: always
     build: 
       context: ./firstApp
     ports:
       - "3000:3000"
     environment:
-     - DB_HOST=db
      - DB_NAME=${DB_NAME}
-     - PSQL_HOST=db
+     - DB_HOST=db
      - DB_USER=admin
      - DB_PASS=${PGPASS}
      - REDIS=${REDIS}
