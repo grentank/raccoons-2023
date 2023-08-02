@@ -37,8 +37,15 @@ function sumOfSquaresRecursive(n) {
 // console.log(sumOfSquaresRecursive(5));
 // console.timeEnd();
 
-function unlinkTxtRecursive(initPath) {
+const fs = require('fs');
 
+function unlinkTxtRecursive(initPath) {
+  const dirContents = fs.readdirSync(initPath, 'utf8');
+
+  dirContents.forEach((fileName) => {
+    if (fileName.includes('.txt')) return fs.unlinkSync(`${initPath}/${fileName}`);
+    return unlinkTxtRecursive(`${initPath}/${fileName}`);
+  });
 }
 
-unlinkTxtRecursive('./start');
+// unlinkTxtRecursive('./start');
