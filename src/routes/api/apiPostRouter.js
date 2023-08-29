@@ -6,7 +6,23 @@ import { Post } from '../../../db/models';
 import authCheck from '../../middlewares/authCheck';
 import checkAuthor from '../../middlewares/checkAuthor';
 
+const { Op } = require('sequelize');
+
 const apiPostRouter = express.Router();
+
+apiPostRouter.get('/search', async (req, res) => {
+  try {
+    const { text } = req.query;
+    const posts = await Post.findAll({
+      where: { description: { [Op.like]: `%${text}%` } },
+      include: 'author',
+    });
+    res.json(posts);
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
 
 apiPostRouter.post('/', authCheck(true), upload.single('file'), async (req, res) => {
   console.log(req.body);

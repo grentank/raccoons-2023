@@ -6,6 +6,7 @@ import AppNavBar from './UI/AppNavBar';
 import SignUpPage from './Pages/SignUpPage';
 import LoginPage from './Pages/LoginPage';
 import AccountPage from './Pages/AccountPage';
+import SearchPostPage from './Pages/SearchPostPage';
 
 function App({ posts, user }) {
   return (
@@ -16,6 +17,7 @@ function App({ posts, user }) {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/account" element={<AccountPage />} />
+        <Route path="/search" element={<SearchPostPage />} />
       </Routes>
     </Container>
   );

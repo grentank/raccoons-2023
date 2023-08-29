@@ -9,6 +9,10 @@ indexRouter.get('/', async (req, res) => {
   res.render('Layout', { posts });
 });
 
+indexRouter.get('/search', async (req, res) => {
+  res.render('Layout');
+});
+
 indexRouter.get('/signup', authCheck(false), (req, res) => res.render('Layout'));
 
 indexRouter.get('/login', authCheck(false), (req, res) => res.render('Layout'));

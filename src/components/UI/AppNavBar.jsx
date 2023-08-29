@@ -12,6 +12,7 @@ export default function AppNavBar({ user }) {
         <Navbar.Brand href="/">Hello, {user ? user.name : 'guest'}</Navbar.Brand>
         <Nav className="me-auto flex-grow-1">
           <Nav.Link href="/">Posts</Nav.Link>
+          <Nav.Link href="/search">Search</Nav.Link>
         </Nav>
         <Nav className="me-auto flex-grow-0">
           {user ? (

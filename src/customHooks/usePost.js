@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function usePost(posts) {
-  const [allPosts, setAllPosts] = React.useState(posts || []);
+  const [allPosts, setAllPosts] = useState(posts || []);
 
   const postSubmitHandler = (e) => {
     e.preventDefault();

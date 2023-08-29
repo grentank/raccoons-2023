@@ -4,6 +4,13 @@ import { User } from '../../../db/models';
 
 const authRouter = express.Router();
 
+authRouter.get('/user', (req, res) => {
+  if (req.session?.user) {
+    return setTimeout(() => res.json(req.session.user), 2000);
+  }
+  return res.sendStatus(404);
+});
+
 authRouter.post('/signup', async (req, res) => {
   const { email, password, name } = req.body;
   const hashpass = await bcrypt.hash(password, 10);
